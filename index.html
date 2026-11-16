@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Returns calculator with cash flow</title>
+  <meta name="description" content="An illustrative calculator for time-weighted and Modified Dietz (money-weighted) returns that takes contributions and withdrawals into account.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Wix+Madefor+Text:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+</head>
+<body>
+  <div class="page" id="main">
+    <header class="intro">
+      <h1>Returns calculator with cash flow</h1>
+      <p class="lede">Each row is a date, the portfolio’s market value at the end of that day, and any cash added (positive) or withdrawn (negative) that day. The value already includes that cash flow. The first row is the starting value.</p>
+      <p class="note">Figures on this page are illustrative. They are not Inverteum performance, and they are not a forecast. The default portfolio values are based on a hypothetical 7% annual return.</p>
+    </header>
+    <section class="panel" aria-labelledby="returns-heading">
+      <h2 id="returns-heading" class="visually-hidden">Cash-flow returns</h2>
+      <div class="btn-row">
+        <button type="button" class="btn" id="add-row">Add a row</button>
+        <button type="button" class="btn" id="reset-sample">Reset sample</button>
+      </div>
+      <div class="table-wrap">
+        <table class="entries" id="entries">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Portfolio value</th>
+              <th scope="col">Cash flow</th>
+              <th class="col-remove"><span class="visually-hidden">Remove</span></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="error" id="returns-error" role="alert"></p>
+      <div class="stat-grid">
+        <div class="stat highlight">
+          <p class="stat-label">Time-weighted return</p>
+          <p class="stat-value" id="twr">—</p>
+          <p class="stat-sub" id="twr-ann"></p>
+        </div>
+        <div class="stat">
+          <p class="stat-label">Modified Dietz return</p>
+          <p class="stat-value" id="dietz">—</p>
+          <p class="stat-sub" id="dietz-ann"></p>
+        </div>
+      </div>
+      <p class="explain" id="returns-explain"></p>
+      <div class="chart" id="returns-chart" role="img" aria-label="Time-weighted growth of one dollar compared with portfolio value."></div>
+      <p class="chart-legend">
+        <span style="color:#111"><i class="swatch"></i>Time-weighted growth of $1</span>
+        <span style="color:#8a857c"><i class="swatch"></i>Portfolio value (index, start = $1)</span>
+      </p>
+    </section>
+  </div>
+  <script src="app.js"></script>
+
+</body>
+</html>
